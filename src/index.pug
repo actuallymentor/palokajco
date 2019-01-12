@@ -4,6 +4,25 @@ html( lang="en" )
 	include pug/_header.pug
 	body
 		main
-			h1 Hello sir
-			h2 How are you
+			div.intro
+				h1 Mentor Palokaj
+				h2 Coder, writer, investor
+				div.links
+					a( href='https://www.linkedin.com/in/mentorpalokaj/' ) Linkedin
+					span , 
+					a( href='https://github.com/actuallymentor' ) Github
+			div.companies
+				h3.center Founder of
+				div.logos
+					a( target="_blank" href='https://www.generousvpn.com/' )
+						img( src='/assets/generousvpn-logo.svg' ).icon.square.round
+					a( target="_blank" href='https://immortalmillionaire.com/' ) 
+						img( src='/assets/immortal-millionaire-logo.svg' ).icon.square.round
+			div.investments
+				h3.center Initial investor in
+				div.logos
+					a( target="_blank" href='https://www.ethereum.org/' )
+						img( src='/assets/ethereum-logo.svg' ).icon
+					a( target="_blank" href='https://mysterium.network/' ) 
+						img( src='/assets/mysterium-logo.svg' ).icon.square
 		include pug/_footer.pug
