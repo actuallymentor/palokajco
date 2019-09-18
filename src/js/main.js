@@ -1,1 +1,5 @@
-console.log( 'I am alive' )
+import manageContactCard from './modules/contactcard'
+
+window.onload = f => {
+	manageContactCard()
+}

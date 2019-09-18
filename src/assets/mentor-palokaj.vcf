@@ -1,0 +1,38 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Mentor Antoni Palokaj
+N:Palokaj;Mentor;Antoni;;
+NICKNAME:Ment
+item1.EMAIL;TYPE=INTERNET:mentor@palokaj.co
+item1.X-ABLabel:Main Email
+item2.EMAIL;TYPE=INTERNET:mentor@immortalmillionaire.com
+item2.X-ABLabel:Book Email
+item3.EMAIL;TYPE=INTERNET:info@generousvpn.com
+item3.X-ABLabel:VPN Company
+item4.EMAIL;TYPE=INTERNET:info@immortalmillionaire.com
+item4.X-ABLabel:Book Newsletter
+item5.EMAIL;TYPE=INTERNET:mentor@skillcollector.com
+item5.X-ABLabel:Blog
+item6.EMAIL;TYPE=INTERNET:mentorpalokaj@gmail.com
+item6.X-ABLabel:
+item7.EMAIL;TYPE=INTERNET:mentor@zezame.io
+item7.X-ABLabel:
+X-SKYPE:mentorpalokaj
+TEL;TYPE=CELL:+31 6 31250266
+ADR;TYPE=HOME:;;;Amsterdam;;;NL
+item8.ORG:Various
+item8.X-ABLabel:
+item9.TITLE:Programmer\, writer\, strategist
+item9.X-ABLabel:
+BDAY:--0509
+URL:https\://www.skillcollector.com 
+URL:https\://www.linkedin.com/in/mentorpalokaj 
+URL:https\://immortalmillionaire.com 
+URL:https\://generousvpn.com 
+ROLE:Entrepreneur / Geek / Enthusiast
+NOTE:Calling\: only scheduled calls\nWhatsapp\: 24-48 hour response\nEmail
+ \: 1-5 day response\nFacebook/twitter/socials\: 1-4 week response\nGender:
+  Male
+PHOTO:https://lh4.googleusercontent.com/-f6wcq8Tg9AM/Vd_qDa4DqtI/AAAAAAAAAA
+ A/dKkRj24YKMI2qpycujbUwOkQiHqPITl5QCOQCEAE/photo.jpg
+END:VCARD
