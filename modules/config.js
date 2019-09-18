@@ -3,8 +3,8 @@ const ip = require( 'ip' )
 module.exports = {
 	// Identity variables used in pug templates
 	identity: {
-		title: "Website",
-		desc: "Description of website",
+		title: "Mentor Palokaj",
+		desc: "",
 		"logo": "logo.jpg"
 	},
 	// System vars managing some pug elements as well as file paths
