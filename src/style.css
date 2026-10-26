@@ -1,0 +1,314 @@
+/* ///////////////////////////////
+// Tokens
+// /////////////////////////////// */
+
+:root {
+
+    --accent: #7ec0d0;
+    --accent-strong: #376675;
+    --coral: #e07c5a;
+    --gold: #f0c040;
+
+    --page: #fafbfc;
+    --surface: #ffffff;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --line: #e3e7eb;
+    --tint: rgb( 126 192 208 / .1 );
+    --link: var( --accent-strong );
+    --halo: rgb( 126 192 208 / .27 );
+
+    --art-sea: #4f9fb4;
+    --art-sea-hi: #a9d8e3;
+    --art-line: #9cc7d3;
+
+    --font-head: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --ease: cubic-bezier( .2, .8, .2, 1 );
+
+}
+
+@media ( prefers-color-scheme: dark ) {
+    :root {
+        --page: #002b36;
+        --surface: #073642;
+        --text: #e6ecf0;
+        --muted: #aab6c1;
+        --line: rgb( 230 236 240 / .12 );
+        --tint: rgb( 126 192 208 / .08 );
+        --link: var( --accent );
+        --halo: rgb( 126 192 208 / .25 );
+
+        --art-sea: #2f7f93;
+        --art-sea-hi: #7ec0d0;
+        --art-line: #3d8193;
+    }
+}
+
+
+/* ///////////////////////////////
+// Base
+// /////////////////////////////// */
+
+*, *::before, *::after { box-sizing: border-box }
+
+html { font-size: 100%; -webkit-text-size-adjust: 100% }
+
+body {
+    margin: 0;
+    background: var( --page );
+    color: var( --text );
+    font-family: var( --font-body );
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2 { font-family: var( --font-head ); font-weight: 400; margin: 0 }
+
+a { color: var( --link ); text-underline-offset: .2em; text-decoration-thickness: 1px }
+
+a:focus-visible { outline: none; box-shadow: 0 0 0 5px var( --halo ); border-radius: .375rem }
+
+strong { font-weight: 600 }
+
+hr { border: 0; border-top: 1px solid var( --line ); margin: 0 }
+
+.wrap { width: min( 68rem, 100% - 2rem ); margin-inline: auto }
+
+.muted { color: var( --muted ) }
+
+.icon {
+    width: 1rem; height: 1rem; flex: none;
+    fill: none; stroke: currentColor; stroke-width: 1.5;
+    stroke-linecap: round; stroke-linejoin: round;
+}
+
+
+/* ///////////////////////////////
+// Hero
+// /////////////////////////////// */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    min-height: min( 40rem, 88vh );
+    padding-block: 4rem;
+}
+
+.eyebrow {
+    margin: 0 0 1rem;
+    color: var( --muted );
+    font-family: var( --font-head );
+    font-size: .875rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp( 2.25rem, 1.4rem + 3.4vw, 3.75rem );
+    line-height: 1.1;
+    letter-spacing: -.02em;
+}
+
+.lede {
+    max-width: 34ch;
+    margin: 1.25rem 0 2rem;
+    color: var( --muted );
+    font-size: 1.1875rem;
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: .75rem }
+
+
+/* ///////////////////////////////
+// Buttons: 32px pill face, ≥44px hit area via ::before
+// /////////////////////////////// */
+
+.button {
+    position: relative;
+    display: inline-flex; align-items: center; gap: .5rem;
+    height: 2rem; padding-inline: .875rem;
+    border-radius: 999px;
+    font-size: .9375rem; font-weight: 500;
+    text-decoration: none; white-space: nowrap;
+    transition: transform 160ms var( --ease ), background-color 160ms, border-color 160ms;
+}
+
+.button::before { content: ""; position: absolute; inset: -.375rem -.25rem }
+
+.button:hover { transform: translateY( -1px ) }
+.button:active { transform: scale( .985 ) }
+.button:focus-visible { border-radius: 999px }
+
+/* Darker fallback keeps white text legible (accent + white ≈ 2:1) */
+.primary { background-color: var( --accent-strong ); color: #fff }
+.primary:hover { background-color: #2e5865 }
+
+/* Narrow attention sheen, 1400ms pass + 1600ms quiet. Painted as background so the hit area isn't clipped */
+.primary {
+    background-image: linear-gradient( 108deg, transparent 42%, rgb( 255 255 255 / .26 ) 50%, transparent 58% );
+    background-size: 300% 100%;
+    background-repeat: no-repeat;
+    animation: sheen 3s 1.2s infinite;
+}
+
+@keyframes sheen {
+    0% { background-position: 100% 0 }
+    46%, 100% { background-position: 0% 0 }
+}
+
+.secondary { border: 1px solid var( --line ); color: var( --text ); background: var( --surface ) }
+.secondary:hover { border-color: var( --accent ) }
+
+
+/* ///////////////////////////////
+// Artwork
+// /////////////////////////////// */
+
+.art { margin: 0; justify-self: end; width: 100%; max-width: 26rem; aspect-ratio: 1 }
+.art svg { display: block; width: 100%; height: 100% }
+
+.orbit circle { fill: none; stroke: var( --art-line ); stroke-width: 1.25; stroke-linecap: round }
+.o1 circle { stroke-dasharray: 2 10; opacity: .7 }
+.o2 circle { stroke-dasharray: 180 70 30 70; opacity: .55 }
+
+.gold { fill: var( --gold ) }
+
+.wave path { fill: none; stroke: var( --art-line ); stroke-width: 2; stroke-linecap: round }
+.w2 path { stroke: var( --coral ); opacity: .55 }
+
+/* Independent, overlapping rhythms: each element gets its own period */
+.orbit, .drift, .wave { transform-box: view-box; transform-origin: 200px 200px }
+
+.o1 { animation: spin 90s linear infinite }
+.o2 { animation: spin 60s linear infinite reverse }
+.d1 { animation: drift-a 13s ease-in-out infinite }
+.d2 { animation: drift-b 9.5s ease-in-out infinite }
+.d3 { animation: drift-c 17s ease-in-out infinite }
+.w1 { animation: sway 11s ease-in-out infinite }
+.w2 { animation: sway 8s ease-in-out -3s infinite reverse }
+
+.sea { animation: breathe 10s ease-in-out infinite }
+.coral { animation: breathe 7s ease-in-out -2s infinite }
+
+@keyframes spin { to { transform: rotate( 360deg ) } }
+
+@keyframes drift-a {
+    0%, 100% { transform: translate( 0, 0 ) }
+    33% { transform: translate( 14px, -18px ) }
+    66% { transform: translate( -12px, 8px ) }
+}
+
+@keyframes drift-b {
+    0%, 100% { transform: translate( 0, 0 ) }
+    50% { transform: translate( -26px, 22px ) }
+}
+
+@keyframes drift-c {
+    0%, 100% { transform: translate( 0, 0 ) }
+    25% { transform: translate( 30px, 12px ) }
+    60% { transform: translate( 10px, 36px ) }
+}
+
+@keyframes sway {
+    0%, 100% { transform: translateY( 0 ) skewX( 0 ) }
+    50% { transform: translateY( -10px ) skewX( -6deg ) }
+}
+
+@keyframes breathe {
+    0%, 100% { opacity: 1 }
+    50% { opacity: .72 }
+}
+
+/* Paused offscreen / in background tabs by main.js */
+.art.paused * { animation-play-state: paused }
+
+
+/* ///////////////////////////////
+// Sections
+// /////////////////////////////// */
+
+section { padding-block: 3.5rem }
+
+section h2 {
+    margin-bottom: 1.5rem;
+    color: var( --muted );
+    font-size: .875rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+.company p { max-width: 65ch; margin: 0 }
+
+
+/* Actionable rows: full-row hover tint */
+.rows { list-style: none; margin: 0; padding: 0 }
+.rows li + li { border-top: 1px solid var( --line ) }
+
+.row {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1.125rem .75rem;
+    margin-inline: -.75rem;
+    border-radius: .5rem;
+    color: var( --text );
+    text-decoration: none;
+    transition: background-color 160ms;
+}
+
+.row:hover { background: var( --tint ) }
+.row > .icon { width: 1.25rem; height: 1.25rem; color: var( --link ) }
+
+.row-text { display: grid; gap: .125rem; flex: 1 }
+.row-title { font-family: var( --font-head ); font-size: 1.125rem }
+.row-desc { color: var( --muted ); font-size: .9375rem }
+
+.row .arrow { color: var( --muted ); transition: transform 160ms var( --ease ), color 160ms }
+.row:hover .arrow { transform: translate( 2px, -2px ); color: var( --link ) }
+
+
+/* ///////////////////////////////
+// Footer
+// /////////////////////////////// */
+
+.footer {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1.5rem;
+    padding-block: 2rem 2.5rem;
+    border-top: 1px solid var( --line );
+    font-size: .875rem;
+}
+
+
+/* ///////////////////////////////
+// Mobile: centered intro, compact inset artwork above text
+// /////////////////////////////// */
+
+@media ( max-width: 48rem ) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        min-height: 0;
+        padding-block: 2.5rem 3rem;
+        text-align: center;
+    }
+
+    .art { order: -1; justify-self: center; max-width: 13rem }
+    .lede { margin-inline: auto }
+    .actions { justify-content: center }
+
+    section { padding-block: 2.5rem }
+
+}
+
+
+/* ///////////////////////////////
+// Reduced motion: composed static scene
+// /////////////////////////////// */
+
+@media ( prefers-reduced-motion: reduce ) {
+    *, *::before, *::after { animation: none !important; transition: none !important }
+}
