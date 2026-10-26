@@ -161,8 +161,6 @@ hr { border: 0; border-top: 1px solid var( --line ); margin: 0 }
     46%, 100% { background-position: 0% 0 }
 }
 
-.secondary { border: 1px solid var( --line ); color: var( --text ); background: var( --surface ) }
-.secondary:hover { border-color: var( --accent ) }
 
 
 /* ///////////////////////////////

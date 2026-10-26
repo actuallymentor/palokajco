@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.2.0] - 2026-10-26
+
+### Added
+- X profile row in link list
+
+### Removed
+- "Get in touch" hero button
+
 ## [2.1.0] - 2026-10-26
 
 ### Added
