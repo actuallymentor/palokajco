@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.1.0] - 2026-10-26
+
+### Added
+- MMOH founding year (2015) in copy, footer range, JSON-LD `foundingDate`
+
 ## [2.0.0] - 2026-10-26
 
 ### Breaking
